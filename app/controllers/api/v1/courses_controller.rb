@@ -1,6 +1,6 @@
 class Api::V1::CoursesController < ApplicationController
 
-  before_action :set_course, only: %i[show] #show update destroy
+  before_action :set_course, only: %i[show update] #show update destroy
 
   def index
     @courses = Course.all
@@ -15,6 +15,14 @@ class Api::V1::CoursesController < ApplicationController
     @course = Course.new(course_params)
     if @course.save
       render json: @course, status: :created, location: api_v1_course_url(@course)
+    else
+      render json: @course.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @course.update(course_params)
+      render json: @course
     else
       render json: @course.errors, status: :unprocessable_entity
     end
