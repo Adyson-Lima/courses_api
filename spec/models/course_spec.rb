@@ -11,6 +11,11 @@ RSpec.describe Course, type: :model do
       expect(@course.name).to eq("eletronica level 1")
     end
 
+    it "value consegue ser preenchido?" do
+      @course.value = ""
+      expect(@course.value).to eq("570,00")
+    end
+
   end
 
 end
