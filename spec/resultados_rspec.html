@@ -287,42 +287,69 @@ a {
 <div id="div_group_2" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_2" class="passed">GET /api/v1/courses</dt>
-    <script type="text/javascript">moveProgressBar('16.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">Consegue listar todos os courses e retornar status 200?</span><span class='duration'>0.03947s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">Consegue listar todos os courses e retornar status 200?</span><span class='duration'>0.04188s</span></dd>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_3" class="passed">GET /api/v1/courses/id</dt>
-    <script type="text/javascript">moveProgressBar('33.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">Consegue listar um course especifico e retornar status 200?</span><span class='duration'>0.00593s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">Consegue listar um course especifico e retornar status 200?</span><span class='duration'>0.00598s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_4" class="passed">Course</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_4" class="passed">POST /api/v1/courses</dt>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_4');</script>
+    <script type="text/javascript">makeRed('example_group_4');</script>
+    <script type="text/javascript">moveProgressBar('42.8');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">Consegue criar um course e retornar status 201?</span>
+      <span class="duration">0.00334s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>  Failure/Error: post :create, params: {course: {name: &quot;introdução ao rails&quot;, value: &quot;250,00&quot;}, format: :json}
+
+  AbstractController::ActionNotFound:
+    The action &#39;create&#39; could not be found for Api::V1::CoursesController
+  # ./spec/controllers/v1/courses_controller_v1_spec.rb:25:in `block (3 levels) in &lt;top (required)&gt;&#39;</pre></div>
+        <div class="backtrace"><pre>./spec/controllers/v1/courses_controller_v1_spec.rb:25:in `block (3 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">23</span>  describe "POST /api/v1/courses" do
+<span class="linenum">24</span>    it "Consegue criar um course e retornar status 201?" do
+<span class="offending"><span class="linenum">25</span>      post :create, params: {course: {name: "introdução ao rails", value: "250,00"}, format: :json}</span>
+<span class="linenum">26</span>      expect(response.body).to include_json(name: "introdução ao rails")
+<span class="linenum">27</span>      expect(response).to have_http_status(201)
+<span class="linenum">28</span><span class="comment"># Install the coderay gem to get syntax highlighting</span></code></pre>
+      </div>
+    </dd>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_5" class="passed">Teste de preenchimento do model Course</dt>
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">name consegue ser preenchido?</span><span class='duration'>0.00100s</span></dd>
-    <script type="text/javascript">moveProgressBar('66.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">value consegue ser preenchido?</span><span class='duration'>0.00055s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_5" class="passed">Course</dt>
   </dl>
 </div>
 <div id="div_group_6" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_6" class="passed">Teste de validação do model Course</dt>
-    <script type="text/javascript">moveProgressBar('83.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">Course válido com campos obrigatórios preenchidos?</span><span class='duration'>0.00064s</span></dd>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">Course inválido com campos obrigatórios não preenchidos?</span><span class='duration'>0.00156s</span></dd>
+  <dt id="example_group_6" class="passed">Teste de preenchimento do model Course</dt>
+    <script type="text/javascript">moveProgressBar('57.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">name consegue ser preenchido?</span><span class='duration'>0.00087s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">value consegue ser preenchido?</span><span class='duration'>0.00063s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.05360 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "6 examples, 0 failures";</script>
+<div id="div_group_7" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_7" class="passed">Teste de validação do model Course</dt>
+    <script type="text/javascript">moveProgressBar('85.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">Course válido com campos obrigatórios preenchidos?</span><span class='duration'>0.00066s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">Course inválido com campos obrigatórios não preenchidos?</span><span class='duration'>0.00145s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.06717 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "7 examples, 1 failure";</script>
 </div>
 </div>
 </body>

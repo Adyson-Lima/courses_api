@@ -20,4 +20,12 @@ RSpec.describe Api::V1::CoursesController, type: :controller do
     end
   end
 
+  describe "POST /api/v1/courses" do
+    it "Consegue criar um course e retornar status 201?" do
+      post :create, params: {course: {name: "introdução ao rails", value: "250,00"}, format: :json}
+      expect(response.body).to include_json(name: "introdução ao rails")
+      expect(response).to have_http_status(201)
+    end
+  end
+
 end
