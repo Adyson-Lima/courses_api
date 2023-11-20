@@ -11,6 +11,15 @@ class Api::V1::CoursesController < ApplicationController
     render json: @course
   end
 
+  def create
+    @course = Course.new(course_params)
+    if @course.save
+      render json: @course, status: :created, location: api_v1_course_url(@course)
+    else
+      render json: @course.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_course
