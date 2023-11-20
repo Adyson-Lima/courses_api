@@ -28,4 +28,13 @@ RSpec.describe Api::V1::CoursesController, type: :controller do
     end
   end
 
+  describe "PATCH /api/v1/courses/id" do
+    it "Consegue atualizar um course e retornar status 200?" do
+      course = Course.last
+      patch :update, params: {course: {name: "curso de java", value: "320,00"}, id: course.id}
+      expect(response.body).to include_json(name: "curso de java")
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
