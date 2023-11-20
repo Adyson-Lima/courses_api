@@ -1,10 +1,14 @@
 class Api::V1::CoursesController < ApplicationController
 
-  #before_action :set_course, only: %i[] #show update destroy
+  before_action :set_course, only: %i[show] #show update destroy
 
   def index
     @courses = Course.all
     render json: @courses
+  end
+
+  def show
+    render json: @course
   end
 
 private
