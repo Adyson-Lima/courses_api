@@ -28,7 +28,7 @@ RSpec.describe Course, type: :model do
 
     it "Course inválido com campos obrigatórios não preenchidos?" do
       course = Course.new
-      expect(course).to be_valid
+      expect(course).to be_invalid
     end
 
   end
