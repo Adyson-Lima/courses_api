@@ -12,7 +12,7 @@ RSpec.describe Course, type: :model do
     end
 
     it "value consegue ser preenchido?" do
-      @course.value = ""
+      @course.value = "570,00"
       expect(@course.value).to eq("570,00")
     end
 
