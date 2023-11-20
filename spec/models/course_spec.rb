@@ -1,4 +1,4 @@
-#require "rails_helper"
+require "rails_helper"
 
 RSpec.describe Course, type: :model do
 
@@ -7,7 +7,7 @@ RSpec.describe Course, type: :model do
   describe "Teste de preenchimento do model Course" do
 
     it "name consegue ser preenchido?" do
-      @course.name = ""
+      @course.name = "eletronica level 1"
       expect(@course.name).to eq("eletronica level 1")
     end
 
