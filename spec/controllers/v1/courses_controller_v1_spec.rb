@@ -37,4 +37,13 @@ RSpec.describe Api::V1::CoursesController, type: :controller do
     end
   end
 
+  describe "DELETE /api/v1/courses/id" do
+    it "Consegue excluir um course e retornar status 204?" do
+      course = Course.last
+      delete :destroy, params: {id: course.id}
+      expect(Course.all).not_to include(course)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
