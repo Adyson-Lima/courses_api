@@ -12,4 +12,12 @@ RSpec.describe Api::V1::CoursesController, type: :controller do
     end
   end
 
+  describe "GET /api/v1/courses/id" do
+    it "Consegue listar um course especifico e retornar status 200?" do
+      get :show, params: {id: @course.id}
+      expect(response.body).to include_json(id: @course.id)
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
