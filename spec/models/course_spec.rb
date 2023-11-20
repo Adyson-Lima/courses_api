@@ -18,4 +18,14 @@ RSpec.describe Course, type: :model do
 
   end
 
+  describe "Teste de validação do model Course" do
+
+    it "Course válido com campos obrigatórios preenchidos?" do
+      @course.name = ""
+      @course.value = ""
+      expect(@course).to be_valid
+    end
+
+  end
+
 end
